@@ -4,13 +4,14 @@ import (
 	"github.com/BurntSushi/toml"
 	"log"
 	"net/http"
+	"strconv"
 )
 
 type сonfig struct {
-	ServerPort string `toml:"serverPort"`
+	ServerPort int `toml:"serverPort"`
 }
 
-func handleNewsLetter(rw http.ResponseWriter, r *http.Request) {
+func handleHealth(rw http.ResponseWriter, r *http.Request) {
 	rw.WriteHeader(http.StatusOK)
 }
 
@@ -21,8 +22,6 @@ func main() {
 		log.Fatalf("Ошибка декодирования файла конфигов %v", err)
 	}
 
-	println(cfg.ServerPort)
-
-	http.HandleFunc("/health", handleNewsLetter)
-	log.Fatal(http.ListenAndServe(cfg.ServerPort, nil))
+	http.HandleFunc("/health", handleHealth)
+	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(cfg.ServerPort), nil))
 }
