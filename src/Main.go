@@ -12,10 +12,7 @@ func handleHealth(rw http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	//DI initialization
 	container := di.NewDi()
-
-	println(container.Config.HttpServer.ListenPort)
 
 	http.HandleFunc("/health", handleHealth)
 

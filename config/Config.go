@@ -1,5 +1,6 @@
 package config
 
+// Config структура конфигурации
 type Config struct {
 	HttpServer HttpServer
 	Database   Database
