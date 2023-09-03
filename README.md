@@ -1,3 +1,4 @@
-# menu
-Menu
-test push to main
+# Menu
+## Запуск проекта
+1. Перейти в директорию build
+2. Выполнить команду docker-compose up
