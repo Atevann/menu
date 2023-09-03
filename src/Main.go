@@ -19,9 +19,9 @@ func main() {
 	cfg := &сonfig{}
 	_, err := toml.DecodeFile("src/config/config.toml", cfg)
 	if err != nil {
-			log.Fatalf("Ошибка декодирования файла конфигов %v", err)
+		log.Fatalf("Ошибка декодирования файла конфигов %v", err)
 	}
 
 	http.HandleFunc("/health", handleHealth)
-	log.Fatal(http.ListenAndServe(":" + strconv.Itoa(cfg.ServerPort), nil))
+	log.Fatal(http.ListenAndServe(":"+strconv.Itoa(cfg.ServerPort), nil))
 }
