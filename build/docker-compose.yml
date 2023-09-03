@@ -1,0 +1,27 @@
+version: '3'
+services:
+  menu:
+      container_name: menu-api
+      image: golang
+      restart: always
+      depends_on:
+        - menu-mysql
+      volumes:
+        - ../:/usr/src/menu
+      working_dir: /usr/src/menu
+      ports:
+        - 80:80
+      entrypoint: go run src/main.go
+  menu-mysql:
+    container_name: menu-mysql
+    build:
+      context: database
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - menu-mysql-data:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+volumes:
+  menu-mysql-data: {}
