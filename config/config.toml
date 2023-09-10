@@ -1,0 +1,8 @@
+[httpServer]
+    listenPort = 80
+
+[database]
+    hostname = "menu-mysql"
+    name     = "menu"
+    username = "menu-user"
+    password = "menu-Pa5Sw0rD!"
