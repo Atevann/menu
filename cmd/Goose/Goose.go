@@ -13,8 +13,8 @@ type Goose struct {
 	BaseCommand.BaseCommand
 }
 
-// migrationsLocation Путь для сохранения миграций в контейнере
-var migrationsLocation = "/usr/src/menu/migrations"
+// MigrationsLocation Путь для сохранения миграций в контейнере
+const MigrationsLocation = "/usr/src/menu/migrations"
 
 func (g Goose) GetDescription() string {
 	return "Инструмент для управления миграциями"
@@ -50,7 +50,7 @@ func (g Goose) Run(args []string) {
 		}
 	}()
 
-	if err := goose.Run(command, db, migrationsLocation, gooseArgs...); err != nil {
+	if err := goose.Run(command, db, MigrationsLocation, gooseArgs...); err != nil {
 		log.Fatalf("Goose %v: %v", command, err)
 	}
 }

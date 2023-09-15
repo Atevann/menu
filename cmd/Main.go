@@ -29,8 +29,8 @@ var (
 
 func main() {
 	flags.Parse(os.Args[1:])
-	args := flags.Args()
 
+	args := flags.Args()
 	container := di.NewDi()
 	commands := getCommands(&container)
 
