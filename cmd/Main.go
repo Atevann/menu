@@ -76,7 +76,7 @@ func getCommands(container *di.Di) map[string]CommandInterface {
 	commands := make(map[string]CommandInterface)
 	baseCommand := BaseCommand.New(container)
 
-	commands["Goose"] = Goose.Goose{BaseCommand: baseCommand}
+	commands["goose"] = Goose.Goose{BaseCommand: baseCommand}
 
 	return commands
 }
