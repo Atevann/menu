@@ -1,6 +1,6 @@
 version: '3'
 services:
-  menu:
+  menu-api:
       container_name: menu-api
       image: golang
       restart: always
@@ -12,6 +12,19 @@ services:
       ports:
         - 80:80
       entrypoint: go run src/main.go
+
+  menu-cli:
+    container_name: menu-cli
+    image: golang
+    restart: always
+    depends_on:
+        - menu-mysql
+    volumes:
+      - ../:/usr/src/menu
+    working_dir: /usr/src/menu
+    stdin_open: true
+    tty: true
+
   menu-mysql:
     container_name: menu-mysql
     build:
