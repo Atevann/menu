@@ -25,5 +25,7 @@ func configureInfoRoutes(r gin.IRouter) {
 
 // configureApiRoutes Конфиг роутов API
 func configureApiRoutes(r gin.IRouter, container di.Di) {
-	r.GET("/dishes", middleware.ProvideDependency(api.GetAllDishes, container))
+	r.GET("/dishes", middleware.ProvideDependency(api.GetDishes, container))
+	r.GET("/ingredients", middleware.ProvideDependency(api.GetIngredients, container))
+	r.GET("/ingredientUnits", middleware.ProvideDependency(api.GetIngredientUnits, container))
 }

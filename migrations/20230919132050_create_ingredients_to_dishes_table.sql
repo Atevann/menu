@@ -1,6 +1,6 @@
 -- +goose Up
 -- +goose StatementBegin
-CREATE TABLE ingredients_to_dishes (
+CREATE TABLE dish_ingredients (
     dish_id INT UNSIGNED NOT NULL ,
     ingredient_id INT UNSIGNED NOT NULL ,
     quantity TINYINT UNSIGNED NOT NULL,
@@ -15,5 +15,5 @@ CREATE TABLE ingredients_to_dishes (
 
 -- +goose Down
 -- +goose StatementBegin
-DROP TABLE ingredients_to_dishes;
+DROP TABLE dish_ingredients;
 -- +goose StatementEnd

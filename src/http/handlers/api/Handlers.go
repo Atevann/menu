@@ -5,8 +5,19 @@ import (
 	"menu/src/di"
 )
 
-func GetAllDishes(c *gin.Context, container *di.Di) {
-	c.JSONP(200, struct {
-		Status string
-	}{Status: "OK"})
+const limit = 100
+
+func GetDishes(c *gin.Context, container *di.Di) {
+	dishes, _ := container.Repositories.Dish.GetMany(limit)
+	c.JSONP(200, dishes)
+}
+
+func GetIngredients(c *gin.Context, container *di.Di) {
+	ingredients, _ := container.Repositories.Ingredient.GetMany(limit)
+	c.JSONP(200, ingredients)
+}
+
+func GetIngredientUnits(c *gin.Context, container *di.Di) {
+	ingredientUnits, _ := container.Repositories.IngredientUnits.GetMany(limit)
+	c.JSONP(200, ingredientUnits)
 }
